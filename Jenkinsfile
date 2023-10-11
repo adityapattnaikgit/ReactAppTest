@@ -1,12 +1,13 @@
 pipeline {
     environment {
     NPM_CONFIG_CACHE = "${WORKSPACE}/.npm"
-}
+    }
 
   agent any
   stages {
     stage ('Install node modules') {
       steps {
+        sh "chmod +x -R ${env.WORKSPACE}"
         sh "npm install"
       }
     }
